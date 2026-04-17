@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-const handler=NextAuth({
+const handler = NextAuth({
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -12,19 +12,21 @@ const handler=NextAuth({
         },
       },
     }),
-  ]
+  ],
+
   callbacks: {
-    async jwt({token, account}) {
+    async jwt({ token, account }) {
       if (account) {
         token.id_token = account.id_token;
       }
       return token;
     },
-    async session({session, token}) {
+
+    async session({ session, token }) {
       session.id_token = token.id_token;
-      return sesion;
+      return session;
     },
   },
 });
 
-export {handler as GET, handler as POST};
+export { handler as GET, handler as POST };
