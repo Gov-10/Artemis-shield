@@ -5,3 +5,4 @@ whitenoise
 python-dotenv
 django-cors-headers
 python-jose
+google-cloud-pubsub
