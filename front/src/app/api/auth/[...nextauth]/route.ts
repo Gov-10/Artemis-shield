@@ -17,13 +17,13 @@ const handler = NextAuth({
   callbacks: {
     async jwt({ token, account }) {
       if (account) {
-        token.id_token = account.id_token;
+        (token as any).id_token = account.id_token;
       }
       return token;
     },
 
     async session({ session, token }) {
-      session.id_token = token.id_token;
+      (session as any).id_token = token.id_token;
       return session;
     },
   },
