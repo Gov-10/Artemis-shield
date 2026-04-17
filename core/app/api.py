@@ -28,6 +28,6 @@ def ana(request, payload:InputSchema):
     dt={"url":url, "id":id1}
     data=json.dumps(dt).encode("utf-8")
     pu=publisher.publish(topic_path, data)
-    return {"publishId":pu}
+    return {"publishId":pu.result()}
 
     
