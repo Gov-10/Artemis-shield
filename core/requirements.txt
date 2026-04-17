@@ -1,0 +1,7 @@
+django
+django-ninja
+uvicorn
+whitenoise
+python-dotenv
+django-cors-headers
+python-jose
