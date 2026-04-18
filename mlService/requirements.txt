@@ -2,4 +2,15 @@ fastapi
 uvicorn
 google-cloud-pubsub
 requests
-
+pandas
+scikit-learn
+joblib
+xgboost
+tldextract
+numpy
+matplotlib
+lxml
+urllib3
+tldextract
+beautifulsoup4
+langchain-groq
