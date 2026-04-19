@@ -61,14 +61,14 @@ def predict_vibe1(url):
     if u_lower.endswith('.xyz') or '.xyz/' in u_lower:
         phish_prob = max(phish_prob, 0.85)
     if phish_prob >= 0.70:
-        llm_res = llm_chek(u_lower) # Your SLM "Judge"
+        llm_res = llm_chek(u_lower)
         if llm_res == "LEGIT":
-            verdict = "🟢 SAFE"
+            verdict = "SAFE"
             phish_prob = 0.05
         else:
-            verdict = "🔴 PHISH"
+            verdict = "PHISH"
     else:
-        verdict = "🟢 SAFE"
+        verdict = "SAFE"
         
     return verdict, phish_prob
 
@@ -90,6 +90,4 @@ tough_cases = [
 ]
 
 
-verdicts, prob = predict_vibe1("https://www.pw.live")
-print(verdicts, prob)
 
