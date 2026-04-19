@@ -3,6 +3,7 @@ from predict import predict_vibe1
 from google.cloud import pubsub_v1
 app=FastAPI()
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 import os, json
 credentials_path=os.getenv("cred")
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=credentials_path
@@ -34,5 +35,8 @@ async def pred(request: Request):
         print(f"error: {str(e)}")
         return {"status": "FAILED"}
 
-
-
+app.add_middleware(CORSMiddleware, 
+                   allow_origins=["*"],
+                   allow_credentials=True,
+                   allow_methods=["*"],
+                   allow_headers=["*"],)
